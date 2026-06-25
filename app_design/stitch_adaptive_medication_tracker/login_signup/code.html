@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediFlow - Sign In</title>
+<!-- Google Fonts: Manrope for Brand Identity -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#d2c580",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#685f25",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#33628b",
+                    "secondary-fixed": "#cfe5ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#d4c782",
+                    "inverse-primary": "#89d5c4",
+                    "primary-fixed-dim": "#89d5c4",
+                    "on-primary-container": "#005c4f",
+                    "secondary-fixed-dim": "#9ecbf9",
+                    "outline-variant": "#bec9c5",
+                    "primary-container": "#86d2c1",
+                    "tertiary-fixed": "#f1e39c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "on-surface": "#191c1d",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary-fixed": "#a4f1df",
+                    "error-container": "#ffdad6",
+                    "primary": "#146a5c",
+                    "surface-dim": "#d9dadb",
+                    "on-primary-fixed-variant": "#005045",
+                    "secondary-container": "#a4d0ff",
+                    "on-surface-variant": "#3f4946",
+                    "on-secondary-container": "#295982",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "surface-variant": "#e1e3e4",
+                    "on-tertiary-container": "#5a5118",
+                    "surface-tint": "#146a5c",
+                    "outline": "#6f7976",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary-fixed-variant": "#154a72",
+                    "on-tertiary-fixed": "#201c00",
+                    "on-secondary-fixed": "#001d33",
+                    "on-tertiary-fixed-variant": "#50470f",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#00201b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-desktop": "64px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-lg": ["Manrope"],
+                    "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "400" }],
+                    "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                    "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                    "display-lg": ["34px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "headline-lg-mobile": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                    "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .clinical-glow {
+            box-shadow: 0 10px 30px rgba(20, 106, 92, 0.04);
+        }
+
+        .auth-card {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .input-focus-ring:focus-within {
+            border-color: #146a5c;
+            box-shadow: 0 0 0 1px #146a5c;
+        }
+
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar { display: none; }
+        * { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col items-center justify-center p-gutter">
+<!-- Subtle Background Ambient Effect -->
+<div class="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
+<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary-fixed/20 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-secondary-fixed/20 blur-[120px]"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[440px] flex flex-col gap-xl">
+<!-- Brand Header Section -->
+<header class="flex flex-col items-center text-center gap-sm">
+<div class="w-16 h-16 bg-primary-container rounded-[24px] flex items-center justify-center clinical-glow mb-xs">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary">MediFlow</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">Your intelligent companion for seamless medication management.</p>
+</header>
+<!-- Auth Card Container -->
+<div class="bg-surface-container-lowest rounded-[32px] p-lg md:p-xl clinical-glow border border-surface-variant/50 flex flex-col gap-lg auth-card">
+<div class="flex flex-col gap-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Welcome back</h2>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Sign in to continue your wellness journey</p>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-md" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-sm">
+<!-- Email Field -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-lg text-label-lg text-on-surface px-1" for="email">Email Address</label>
+<div class="relative flex items-center group input-focus-ring border border-transparent bg-surface-container-low rounded-xl transition-all duration-200">
+<span class="material-symbols-outlined absolute left-4 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full bg-transparent border-none rounded-xl py-4 pl-12 pr-4 font-body-md text-on-surface placeholder:text-outline/60 focus:ring-0" id="email" placeholder="name@example.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-lg text-label-lg text-on-surface" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative flex items-center group input-focus-ring border border-transparent bg-surface-container-low rounded-xl transition-all duration-200">
+<span class="material-symbols-outlined absolute left-4 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full bg-transparent border-none rounded-xl py-4 pl-12 pr-12 font-body-md text-on-surface placeholder:text-outline/60 focus:ring-0" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-headline-md text-headline-md py-4 rounded-full clinical-glow hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-xs">
+                    Sign In
+                </button>
+</form>
+<!-- Separator -->
+<div class="flex items-center gap-md py-xs">
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+<span class="font-label-sm text-label-sm text-outline">OR CONTINUE WITH</span>
+<div class="h-[1px] flex-1 bg-outline-variant"></div>
+</div>
+<!-- Social Buttons -->
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="flex-1 flex items-center justify-center gap-sm py-3.5 border border-outline-variant rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWvoJbKbpRBTpZu0KRp4IgsLJ_e_Z6O_gVmL3EmOIqr4nBUTC_J8RAKLyASOQwsFGZQaOS76B7yGwn0NdApA-DtS0jFvH9RBsXBjJvSLOunIFQI_lT2OcOlzOhc8Qvt9oXMg-dNqI0i9WhkRjBBPxprQN9Vo7NgVcvnxnQlFaPEApWEFJDW_owOXjz-TT89ZMn5kl9WDpjaFg52IkFyjDoFRIXbOtKENam2GUeA28tNlt7feUktXcoN0FUsZGaHKzvKqiBeYK5Tz4"/>
+<span class="font-label-lg text-label-lg text-on-surface">Google</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-sm py-3.5 bg-on-surface text-surface rounded-full hover:bg-on-surface/90 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">apps</span>
+<span class="font-label-lg text-label-lg">Apple ID</span>
+</button>
+</div>
+</div>
+<!-- Footer Action -->
+<footer class="text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                New to MediFlow? 
+                <a class="text-primary font-bold hover:underline ml-1" href="#">Create an account</a>
+</p>
+</footer>
+</main>
+<!-- Floating Atmosphere Elements -->
+<div class="fixed top-20 left-[15%] w-32 h-32 opacity-20 hidden lg:block">
+<div class="w-full h-full bg-primary rounded-full blur-3xl animate-pulse"></div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.96)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = '';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+
+        // Simple Toggle for Password Visibility
+        const pwInput = document.getElementById('password');
+        const pwToggle = pwInput.nextElementSibling;
+        pwToggle.addEventListener('click', () => {
+            const isPassword = pwInput.type === 'password';
+            pwInput.type = isPassword ? 'text' : 'password';
+            pwToggle.querySelector('span').innerText = isPassword ? 'visibility' : 'visibility_off';
+        });
+    </script>
+</body></html>

@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "name": "@mediflow/backend-archived",
+  "comment": "Superseded by the top-level convex/ directory. Kept as a stub; backend lives in ../convex."
+}

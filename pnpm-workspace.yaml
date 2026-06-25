@@ -1,0 +1,5 @@
+packages:
+  - 'app'
+  - 'shared'
+  - 'backend'
+  - 'convex'

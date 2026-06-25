@@ -1,0 +1,36 @@
+{
+  "name": "mediflow",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MediFlow — adaptive medication scheduling, dosage tracking & smart reminders. iOS + Android.",
+  "scripts": {
+    "start": "pnpm --filter @mediflow/app start -- --clear",
+    "dev": "pnpm --filter @mediflow/app dev",
+    "android": "pnpm --filter @mediflow/app android",
+    "ios": "pnpm --filter @mediflow/app ios",
+    "web": "pnpm --filter @mediflow/app web",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "convex:dev": "npx convex dev",
+    "convex:deploy": "npx convex deploy"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.2"
+  },
+  "dependencies": {
+    "convex": "^1.17.0",
+    "react-native-get-random-values": "^1.11.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "expo-secure-store": "~55.0.14",
+      "expo-auth-session": "~55.0.16",
+      "expo-web-browser": "~55.0.16",
+      "expo-crypto": "~55.0.0",
+      "expo-linking": "~55.0.15"
+    }
+  }
+}

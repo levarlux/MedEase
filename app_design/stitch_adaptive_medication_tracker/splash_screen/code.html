@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediFlow | Wellness Journey</title>
+<!-- Google Fonts: Manrope for consistent typography -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#d2c580",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#685f25",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#33628b",
+                    "secondary-fixed": "#cfe5ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#d4c782",
+                    "inverse-primary": "#89d5c4",
+                    "primary-fixed-dim": "#89d5c4",
+                    "on-primary-container": "#005c4f",
+                    "secondary-fixed-dim": "#9ecbf9",
+                    "outline-variant": "#bec9c5",
+                    "primary-container": "#86d2c1",
+                    "tertiary-fixed": "#f1e39c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "on-surface": "#191c1d",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary-fixed": "#a4f1df",
+                    "error-container": "#ffdad6",
+                    "primary": "#146a5c",
+                    "surface-dim": "#d9dadb",
+                    "on-primary-fixed-variant": "#005045",
+                    "secondary-container": "#a4d0ff",
+                    "on-surface-variant": "#3f4946",
+                    "on-secondary-container": "#295982",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "surface-variant": "#e1e3e4",
+                    "on-tertiary-container": "#5a5118",
+                    "surface-tint": "#146a5c",
+                    "outline": "#6f7976",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary-fixed-variant": "#154a72",
+                    "on-tertiary-fixed": "#201c00",
+                    "on-secondary-fixed": "#001d33",
+                    "on-tertiary-fixed-variant": "#50470f",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#00201b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-desktop": "64px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-lg": ["Manrope"],
+                    "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["34px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f8f9fa;
+            color: #191c1d;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Ambient Pulsing Background Glow */
+        .ambient-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(134, 210, 193, 0.15) 0%, rgba(248, 249, 250, 0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 10s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-20%, -20%) scale(1); }
+            100% { transform: translate(10%, 10%) scale(1.1); }
+        }
+
+        /* Logo Fade In & Up */
+        .splash-entrance {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Heartbeat Animation for Logo Icon */
+        .logo-pulse {
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(20, 106, 92, 0)); }
+            15% { transform: scale(1.08); filter: drop-shadow(0 0 15px rgba(20, 106, 92, 0.3)); }
+            30% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(20, 106, 92, 0)); }
+            45% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(20, 106, 92, 0.2)); }
+            70% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(20, 106, 92, 0)); }
+        }
+
+        /* Loader Bar Animation */
+        .progress-bar-container {
+            width: 180px;
+            height: 4px;
+            background-color: rgba(20, 106, 92, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #146a5c;
+            width: 0%;
+            animation: fillProgress 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+        }
+
+        @keyframes fillProgress {
+            0% { width: 0%; }
+            50% { width: 60%; }
+            100% { width: 100%; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col items-center justify-center min-h-screen relative overflow-hidden bg-background">
+<!-- Background Atmospheric Effects -->
+<div class="ambient-glow -top-40 -left-40"></div>
+<div class="ambient-glow -bottom-40 -right-40" style="animation-delay: -5s; background: radial-gradient(circle, rgba(164, 208, 255, 0.1) 0%, rgba(248, 249, 250, 0) 70%);"></div>
+<!-- Main Splash Container -->
+<main class="z-10 flex flex-col items-center justify-center splash-entrance text-center">
+<!-- Logo Branding -->
+<div class="mb-lg relative group">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-[32px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center transition-transform duration-500 hover:scale-105">
+<!-- Soft Teal Heartbeat/Pill Icon -->
+<div class="relative flex items-center justify-center logo-pulse">
+<span class="material-symbols-outlined text-[64px] md:text-[80px] text-primary select-none" style="font-variation-settings: 'FILL' 1;">
+                        medical_services
+                    </span>
+<!-- Subtle Overlapping heartbeat detail -->
+<span class="material-symbols-outlined absolute text-[24px] md:text-[32px] text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] select-none">
+                        favorite
+                    </span>
+</div>
+</div>
+</div>
+<!-- Wordmark -->
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight mb-2">
+            MediFlow
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[240px] opacity-80">
+            Harmonizing your health, one step at a time.
+        </p>
+<!-- Loading Experience -->
+<div class="flex flex-col items-center">
+<div class="progress-bar-container">
+<div class="progress-bar-fill"></div>
+</div>
+<span class="mt-sm font-label-sm text-label-sm text-outline tracking-widest uppercase opacity-60">
+                Initializing Secure Vault
+            </span>
+</div>
+</main>
+<!-- Bottom Footer Meta -->
+<footer class="absolute bottom-10 z-10 flex flex-col items-center gap-xs opacity-40">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm">End-to-End Encrypted Health Data</span>
+</div>
+<div class="font-label-sm text-label-sm mt-1">v2.4.0 Clinical Core</div>
+</footer>
+<!-- Interactive Atmospheric Background (Optional subtle noise/grain) -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: url('https://www.transparenttextures.com/patterns/p6.png');"></div>
+<script>
+        // Simple JS for a subtle parallax effect on mouse move for the glow blobs
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 40;
+            const y = (e.clientY / window.innerHeight - 0.5) * 40;
+            
+            const glows = document.querySelectorAll('.ambient-glow');
+            glows.forEach((glow, idx) => {
+                const multiplier = idx === 0 ? 1 : -1;
+                glow.style.transform = `translate(${x * multiplier}px, ${y * multiplier}px)`;
+            });
+        });
+
+        // Automatically "redirect" or finish the splash sequence
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // In a real app, this would trigger navigation to the dashboard/login
+                console.log('MediFlow Ready');
+            }, 2800);
+        });
+    </script>
+</body></html>

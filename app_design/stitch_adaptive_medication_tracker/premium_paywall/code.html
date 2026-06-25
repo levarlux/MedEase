@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediFlow Plus - Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#d2c580",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#685f25",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#33628b",
+                    "secondary-fixed": "#cfe5ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#d4c782",
+                    "inverse-primary": "#89d5c4",
+                    "primary-fixed-dim": "#89d5c4",
+                    "on-primary-container": "#005c4f",
+                    "secondary-fixed-dim": "#9ecbf9",
+                    "outline-variant": "#bec9c5",
+                    "primary-container": "#86d2c1",
+                    "tertiary-fixed": "#f1e39c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "on-surface": "#191c1d",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary-fixed": "#a4f1df",
+                    "error-container": "#ffdad6",
+                    "primary": "#146a5c",
+                    "surface-dim": "#d9dadb",
+                    "on-primary-fixed-variant": "#005045",
+                    "secondary-container": "#a4d0ff",
+                    "on-surface-variant": "#3f4946",
+                    "on-secondary-container": "#295982",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "surface-variant": "#e1e3e4",
+                    "on-tertiary-container": "#5a5118",
+                    "surface-tint": "#146a5c",
+                    "outline": "#6f7976",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary-fixed-variant": "#154a72",
+                    "on-tertiary-fixed": "#201c00",
+                    "on-secondary-fixed": "#001d33",
+                    "on-tertiary-fixed-variant": "#50470f",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#00201b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-desktop": "64px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-lg": ["Manrope"],
+                    "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["34px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #146a5c 0%, #89d5c4 100%);
+        }
+        .bento-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+        .pill-button {
+            border-radius: 9999px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pill-button:active {
+            transform: scale(0.95);
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-anim {
+            animation: floating 4s ease-in-out infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Top App Bar (Suppressed Navigation but keeps Brand identity for Paywall) -->
+<header class="docked full-width top-0 z-50 flex justify-between items-center w-full px-margin-mobile py-sm bg-background">
+<button class="p-2 hover:bg-surface-variant/50 rounded-full transition-transform active:scale-95" onclick="window.history.back()">
+<span class="material-symbols-outlined text-on-surface">close</span>
+</button>
+<div class="text-headline-md font-headline-md font-bold text-primary">MediFlow</div>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</header>
+<main class="max-w-xl mx-auto px-margin-mobile pt-lg">
+<!-- Hero Section -->
+<section class="text-center mb-xl">
+<div class="relative inline-block mb-lg">
+<div class="absolute inset-0 bg-primary-container/20 blur-3xl rounded-full"></div>
+<div class="relative bento-card p-xl float-anim overflow-hidden">
+
+<span class="material-symbols-outlined text-primary text-[64px] relative z-10" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h1 class="font-display-lg text-display-lg mb-xs tracking-tight">Upgrade to Plus</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">Take control of your health journey with our most advanced tools.</p>
+</section>
+<!-- Features Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md mb-xl">
+<!-- Adaptive Smart Notifications -->
+<div class="bento-card p-lg flex flex-col gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">notifications_active</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-xs">Smart Alerts</h3>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Adaptive notifications that learn your schedule and time-zone changes.</p>
+</div>
+</div>
+<!-- Family Sharing -->
+<div class="bento-card p-lg flex flex-col gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">group</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-xs">Family Share</h3>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Manage meds for up to 5 family members under a single dashboard.</p>
+</div>
+</div>
+<!-- Advanced Reports -->
+<div class="bento-card p-lg flex flex-col gap-sm md:col-span-2">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed">analytics</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-xs">Adherence Reports</h3>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Deep-dive medical insights and exportable PDF logs for your doctor.</p>
+</div>
+</div>
+<div class="w-32 h-20 opacity-40">
+<img class="w-full h-full object-contain" data-alt="A clean, minimalist UI data visualization featuring soft, rounded bar charts and line graphs in mint green and soft blue, representing health trends on a white background with gentle shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBElJRJQOjZvVpSyuOYJ8ULPL6572SVpaluGsUKI3bJe9izaQmBNcHXpa8yowdB4MGzNggpW6tNKN4VnT8R5vSWJ-mKnzVBchD4vIsCAKpfOvmR5_eAo_lMBHncNs5yQgVjptgec9aO2u6bPXOMirNi1RtaHoy0YtXCoSqWe7cRDFUHxlQd9kIHVeP1eYD0P5cxnToO-o55TAgvgpBshkFgQiRpYbCKHqoczbhGQcEvdp21HgcGHnJHR7mqJlmOfFR8Hs792Pt9GdM"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Options -->
+<section class="flex flex-col gap-md mb-xl">
+<!-- Annual Plan (Active/Preferred) -->
+<button class="bento-card p-lg text-left border-2 border-primary ring-4 ring-primary-container/20 transition-all duration-300" id="plan-annual" onclick="selectPlan('annual')">
+<div class="flex justify-between items-center mb-xs">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md">Annual Plan</span>
+<span class="bg-primary-container text-on-primary-container text-[10px] uppercase font-bold px-2 py-0.5 rounded-full tracking-wider">Best Value</span>
+</div>
+<span class="material-symbols-outlined text-primary" id="radio-annual">check_circle</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-headline-lg">$59.99</span>
+<span class="font-label-lg text-on-surface-variant">/ year</span>
+</div>
+<p class="font-label-sm text-label-sm text-primary font-bold mt-sm">Save 40% compared to monthly</p>
+</button>
+<!-- Monthly Plan -->
+<button class="bento-card p-lg text-left border-2 border-transparent transition-all duration-300" id="plan-monthly" onclick="selectPlan('monthly')">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-headline-md text-headline-md">Monthly Plan</span>
+<span class="material-symbols-outlined text-outline" id="radio-monthly">radio_button_unchecked</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-headline-lg">$8.99</span>
+<span class="font-label-lg text-on-surface-variant">/ month</span>
+</div>
+</button>
+</section>
+<!-- Trust Badge/Quote -->
+<div class="flex items-center gap-md justify-center mb-xl opacity-60">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span class="font-label-sm text-label-sm">Secure payment via App Store</span>
+</div>
+</main>
+<!-- Sticky Footer Action -->
+<div class="fixed bottom-0 left-0 right-0 p-lg bg-background/80 backdrop-blur-xl border-t border-surface-variant/30">
+<div class="max-w-xl mx-auto flex flex-col gap-sm">
+<button class="pill-button premium-gradient w-full py-md font-headline-md text-white shadow-xl shadow-primary/20 hover:brightness-105 active:scale-95 transition-all">
+                Try Free &amp; Subscribe
+            </button>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant px-md">
+                7-day free trial, then $59.99/year. Cancel anytime in settings.
+            </p>
+</div>
+</div>
+<script>
+        function selectPlan(plan) {
+            const annualBtn = document.getElementById('plan-annual');
+            const monthlyBtn = document.getElementById('plan-monthly');
+            const annualRadio = document.getElementById('radio-annual');
+            const monthlyRadio = document.getElementById('radio-monthly');
+
+            if (plan === 'annual') {
+                annualBtn.classList.add('border-primary', 'ring-4', 'ring-primary-container/20');
+                monthlyBtn.classList.remove('border-primary', 'ring-4', 'ring-primary-container/20');
+                monthlyBtn.classList.add('border-transparent');
+                annualRadio.innerText = 'check_circle';
+                annualRadio.classList.replace('text-outline', 'text-primary');
+                monthlyRadio.innerText = 'radio_button_unchecked';
+                monthlyRadio.classList.replace('text-primary', 'text-outline');
+            } else {
+                monthlyBtn.classList.add('border-primary', 'ring-4', 'ring-primary-container/20');
+                annualBtn.classList.remove('border-primary', 'ring-4', 'ring-primary-container/20');
+                annualBtn.classList.add('border-transparent');
+                monthlyRadio.innerText = 'check_circle';
+                monthlyRadio.classList.replace('text-outline', 'text-primary');
+                annualRadio.innerText = 'radio_button_unchecked';
+                annualRadio.classList.replace('text-primary', 'text-outline');
+            }
+        }
+    </script>
+</body></html>

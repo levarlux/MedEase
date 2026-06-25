@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediFlow - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Shared Components JSON Configuration Implementation -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#d2c580",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#685f25",
+                        "surface-bright": "#f8f9fa",
+                        "secondary": "#33628b",
+                        "secondary-fixed": "#cfe5ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed-dim": "#d4c782",
+                        "inverse-primary": "#89d5c4",
+                        "primary-fixed-dim": "#89d5c4",
+                        "on-primary-container": "#005c4f",
+                        "secondary-fixed-dim": "#9ecbf9",
+                        "outline-variant": "#bec9c5",
+                        "primary-container": "#86d2c1",
+                        "tertiary-fixed": "#f1e39c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed": "#a4f1df",
+                        "error-container": "#ffdad6",
+                        "primary": "#146a5c",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#005045",
+                        "secondary-container": "#a4d0ff",
+                        "on-surface-variant": "#3f4946",
+                        "on-secondary-container": "#295982",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-container": "#5a5118",
+                        "surface-tint": "#146a5c",
+                        "outline": "#6f7976",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed-variant": "#154a72",
+                        "on-tertiary-fixed": "#201c00",
+                        "on-secondary-fixed": "#001d33",
+                        "on-tertiary-fixed-variant": "#50470f",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#00201b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-desktop": "64px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-lg": ["Manrope"],
+                        "label-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["34px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .clinical-glow {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .progress-ring {
+            transition: stroke-dashoffset 0.8s ease-in-out;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar - Shared Component Mapping -->
+<header class="bg-background dark:bg-background docked full-width top-0 sticky z-40">
+<div class="flex justify-between items-center w-full px-margin-mobile py-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional user profile portrait of a woman in her 30s with a friendly and approachable expression. The image has soft, high-key lighting and a minimalist background that reflects a modern, clinical healthcare aesthetic with mint green and soft white tones. High quality digital photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8nsuy1VzX7hBUHzNBRArmi9js1WHPhVzQMaIYH-zkA9uQvod0vWPqXu6P7YjeeSXiTVS6t3YLiyy_duqxLvKCLf_0z72yGoHOhFCD8ycPo7OQTgD22tzoTRJhh1x4gJVwsDr5XK7O1B55lYI6TwqNLs_wJ4C_lJzO-p7nLzRc5SLLPfSBCmUgxqIuQ5_6qT3JBU9Wy_ImSYrrvJfN4x8rtCeKlpCwvU0uR6slpF6C00BJhYy8RHUmELm7HKShyYtGRvoTXqqzy68"/>
+</div>
+<div class="flex flex-col">
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">MediFlow</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Hello, Christ!</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-variant/50 rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-margin-mobile pt-sm space-y-lg">
+<!-- Hero Section: Daily Nutrition/Adherence -->
+<section>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile mb-4">Complete your daily routine</h2>
+<!-- Bento Grid: Main Gauge & Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Large Gauge Card -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-2xl p-lg clinical-glow border border-surface-variant/20 flex flex-col items-center justify-center relative overflow-hidden">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- Background Circle -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container" cx="96" cy="96" fill="transparent" r="84" stroke="currentColor" stroke-width="12"></circle>
+<!-- Progress Circle (65%) -->
+<circle class="text-primary progress-ring" cx="96" cy="96" fill="transparent" r="84" stroke="currentColor" stroke-dasharray="527.78" stroke-dashoffset="184.72" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-display-lg font-display-lg text-primary">65%</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Daily Score</span>
+</div>
+</div>
+<div class="mt-lg grid grid-cols-3 gap-xl w-full">
+<div class="text-center">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Morning</p>
+<div class="h-1 bg-primary rounded-full w-full"></div>
+</div>
+<div class="text-center">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Afternoon</p>
+<div class="h-1 bg-primary-container rounded-full w-full opacity-60"></div>
+</div>
+<div class="text-center">
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Evening</p>
+<div class="h-1 bg-surface-container rounded-full w-full"></div>
+</div>
+</div>
+</div>
+<!-- Secondary Dose Cards -->
+<div class="md:col-span-4 space-y-md">
+<div class="bg-primary-container/30 rounded-2xl p-md clinical-glow flex items-center justify-between">
+<div>
+<span class="material-symbols-outlined text-on-primary-container mb-2">wb_sunny</span>
+<p class="text-label-lg font-label-lg text-on-primary-container">Breakfast</p>
+<p class="text-headline-md font-headline-md text-on-primary-fixed-variant">423 kcal</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+</div>
+<div class="bg-tertiary-container/30 rounded-2xl p-md clinical-glow flex items-center justify-between">
+<div>
+<span class="material-symbols-outlined text-on-tertiary-container mb-2">light_mode</span>
+<p class="text-label-lg font-label-lg text-on-tertiary-container">Lunch</p>
+<p class="text-headline-md font-headline-md text-on-tertiary-container">544 kcal</p>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-container text-sm">add</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-md font-headline-md">Daily Timeline</h2>
+<button class="text-primary font-label-lg">View Schedule</button>
+</div>
+<div class="space-y-xs">
+<!-- Taken State -->
+<div class="flex gap-md group">
+<div class="flex flex-col items-center w-12">
+<span class="text-label-sm font-label-sm text-on-surface-variant">08:00</span>
+<div class="w-0.5 h-full bg-primary mt-2 group-last:bg-transparent"></div>
+</div>
+<div class="flex-1 pb-md">
+<div class="bg-surface-container-low rounded-2xl p-md border-l-4 border-primary transition-all hover:translate-x-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-primary">Overnight Oats</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Vitamin D3 • Omega-3</p>
+</div>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-sm font-label-sm">Taken</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming State -->
+<div class="flex gap-md group">
+<div class="flex flex-col items-center w-12">
+<span class="text-label-sm font-label-sm text-on-surface-variant">13:00</span>
+<div class="w-0.5 h-full bg-surface-container-highest mt-2 group-last:bg-transparent"></div>
+</div>
+<div class="flex-1 pb-md">
+<div class="bg-surface-container-lowest rounded-2xl p-md border border-surface-variant/30 clinical-glow transition-all hover:shadow-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-on-surface">Medication: Metformin</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">500mg • After meal</p>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-full text-label-sm font-label-sm active:scale-95 transition-transform">Log Dose</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Future State -->
+<div class="flex gap-md group">
+<div class="flex flex-col items-center w-12">
+<span class="text-label-sm font-label-sm text-on-surface-variant">19:30</span>
+<div class="w-0.5 h-full bg-surface-container-highest mt-2 group-last:bg-transparent"></div>
+</div>
+<div class="flex-1 pb-md">
+<div class="bg-surface-container-lowest/50 rounded-2xl p-md border border-dashed border-surface-variant/50 opacity-80">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-on-surface-variant">Dinner: Grilled Salmon</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Scheduled</p>
+</div>
+<span class="material-symbols-outlined text-surface-variant">schedule</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Insights Bento -->
+<section class="grid grid-cols-2 gap-md">
+<div class="bg-secondary-container/20 p-md rounded-2xl clinical-glow border border-secondary-container/10">
+<span class="material-symbols-outlined text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<p class="text-label-sm font-label-sm text-on-secondary-container">Hydration</p>
+<p class="text-headline-md font-headline-md text-secondary">1.2 / 2.0 L</p>
+<div class="mt-2 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[60%]"></div>
+</div>
+</div>
+<div class="bg-tertiary-container/20 p-md rounded-2xl clinical-glow border border-tertiary-container/10">
+<span class="material-symbols-outlined text-tertiary mb-2" style="font-variation-settings: 'FILL' 1;">steps</span>
+<p class="text-label-sm font-label-sm text-on-tertiary-container">Steps</p>
+<p class="text-headline-md font-headline-md text-tertiary">4,352</p>
+<div class="mt-2 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[43%]"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Bottom Navigation - Shared Component Mapping -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full z-50 bg-inverse-surface/90 dark:bg-surface-container-highest/95 backdrop-blur-md shadow-xl p-2 max-w-md">
+<div class="flex justify-between items-center px-1">
+<!-- Home: Active State -->
+<a class="flex items-center gap-2 bg-surface-container-lowest dark:bg-surface-container text-on-background dark:text-on-surface rounded-full px-4 py-2 transition-all duration-300 scale-95" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<!-- Schedule -->
+<a class="flex items-center justify-center text-on-primary-container/70 dark:text-on-surface-variant/70 px-3 py-2 hover:text-on-primary dark:hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+</a>
+<!-- Meds -->
+<a class="flex items-center justify-center text-on-primary-container/70 dark:text-on-surface-variant/70 px-3 py-2 hover:text-on-primary dark:hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+</a>
+<!-- Insights -->
+<a class="flex items-center justify-center text-on-primary-container/70 dark:text-on-surface-variant/70 px-3 py-2 hover:text-on-primary dark:hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+</a>
+</div>
+</nav>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 -left-24 w-80 h-80 bg-tertiary-container/10 rounded-full blur-3xl"></div>
+</div>
+<script>
+        // Simple micro-interaction for the Log Dose buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.innerText === 'Log Dose') {
+                    const originalText = this.innerText;
+                    this.innerText = 'Loging...';
+                    this.disabled = true;
+                    setTimeout(() => {
+                        this.innerText = 'Logged';
+                        this.classList.replace('bg-primary', 'bg-surface-container-highest');
+                        this.classList.replace('text-white', 'text-on-surface-variant');
+                        this.disabled = false;
+                    }, 800);
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediFlow - Profile &amp; Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#d2c580",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#685f25",
+                        "surface-bright": "#f8f9fa",
+                        "secondary": "#33628b",
+                        "secondary-fixed": "#cfe5ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed-dim": "#d4c782",
+                        "inverse-primary": "#89d5c4",
+                        "primary-fixed-dim": "#89d5c4",
+                        "on-primary-container": "#005c4f",
+                        "secondary-fixed-dim": "#9ecbf9",
+                        "outline-variant": "#bec9c5",
+                        "primary-container": "#86d2c1",
+                        "tertiary-fixed": "#f1e39c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed": "#a4f1df",
+                        "error-container": "#ffdad6",
+                        "primary": "#146a5c",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#005045",
+                        "secondary-container": "#a4d0ff",
+                        "on-surface-variant": "#3f4946",
+                        "on-secondary-container": "#295982",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-container": "#5a5118",
+                        "surface-tint": "#146a5c",
+                        "outline": "#6f7976",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-fixed-variant": "#154a72",
+                        "on-tertiary-fixed": "#201c00",
+                        "on-secondary-fixed": "#001d33",
+                        "on-tertiary-fixed-variant": "#50470f",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#00201b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-desktop": "64px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-lg": ["Manrope"],
+                        "label-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["34px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .clinical-glow {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e1e3e4;
+            border-radius: 10px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-background/80 backdrop-blur-md flex justify-between items-center w-full px-margin-mobile py-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container flex items-center justify-center border-2 border-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a healthy person with a gentle, friendly expression. The image has a clean, minimalist medical office background with soft morning light, using a palette of calming mint greens and soft greys to evoke wellness and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6WF5_9q8y2EUt3gClxkDDU68RMemeh2amlBRpM1aAYerVVOtlWxcvXL29rGKOgNLZVQftsKNqaYNoiWRfVzvFFglG4pEL5d3F3q_on7lUgxPOgmps6pAN9ggjyZGZ7YnljCEfPVkDeDFrTzIhgW6V7E9d1qMWTzW9pIrJULj7sccDiLyi7zBeI2ZVO5KQc1c0ifbdZBYc-t8sHnXhKfa5XK_Y6IyxjgNS1kdZ11XUnrEiXhQEtmiRRBmReEE8pVkocrCVrJ6EAHU"/>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary">MediFlow</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-variant/50 rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="max-w-md mx-auto px-margin-mobile mt-lg space-y-xl">
+<!-- User Info Section (Bento Card) -->
+<section class="bg-surface-container-lowest rounded-[24px] p-lg clinical-glow border border-surface-variant/30">
+<div class="flex items-center gap-lg">
+<div class="relative">
+<div class="w-20 h-20 rounded-full border-4 border-primary-container/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up high-quality avatar photo of a woman in her 30s with a warm smile, representing a health-conscious user. The lighting is soft and airy, shot in a high-key professional style. The aesthetic is modern and clinical yet welcoming, reflecting a medical adherence application's clean design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyMLygyzsODzLUVz7tasyg2hZ8Ojeu7Aruit1qJtNREsC4Q8-3sTmz4_eGY8Hi8iWfZmhEBBeMwstw3eHKQ4zWb7_OVNx6146IAyP4z2tY3Mt0CQ28p12MWXnrtXf0N6J5gkFTViPwcYb8RHpdzRl4KAdL5qojPBUlbE7Cuk_vNBk8Eg_iMHl-fVUCuNW3dir8w5S2hxUxzzM79_Gb2F0y487m7-WsE_kQMKbvaW59rDg5F3GqTwPKttB19JRQ-Yd8PYULLV1JbIM"/>
+</div>
+<div class="absolute bottom-0 right-0 w-6 h-6 bg-primary rounded-full border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]" data-icon="verified">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">Alex Rivera</h1>
+<p class="text-label-lg font-label-lg text-on-surface-variant">Member since Oct 2023</p>
+<div class="mt-2 inline-flex items-center gap-1 bg-primary-container/20 text-on-primary-container px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]" data-icon="monitor_heart">monitor_heart</span>
+<span class="text-label-sm font-label-sm">Consistent Progress</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Health Integrations -->
+<section class="space-y-md">
+<h2 class="text-headline-md font-headline-md px-1">Health Integrations</h2>
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-[24px] clinical-glow flex flex-col items-center text-center gap-sm border border-surface-variant/30 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-red-500" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<p class="text-label-lg font-label-lg text-on-surface">Apple Health</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Connected</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-[24px] clinical-glow flex flex-col items-center text-center gap-sm border border-surface-variant/30 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-blue-500" data-icon="fitness_center">fitness_center</span>
+</div>
+<div>
+<p class="text-label-lg font-label-lg text-on-surface">Google Fit</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Link Device</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Settings Groups -->
+<section class="space-y-md">
+<div class="bg-surface-container-lowest rounded-[24px] overflow-hidden clinical-glow border border-surface-variant/30">
+<!-- Notification Settings -->
+<div class="p-lg border-b border-surface-variant/20">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="notifications_active">notifications_active</span>
+<h3 class="text-headline-md font-headline-md">Notifications</h3>
+</div>
+<div class="space-y-lg">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-md font-body-md text-on-surface">Smart Reminders</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">AI-optimized med alerts</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-md font-body-md text-on-surface">Critical Sound</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Override silent mode for meds</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Emergency Contact -->
+<div class="p-lg border-b border-surface-variant/20 bg-surface-container-low/30">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-error" data-icon="emergency">emergency</span>
+<h3 class="text-headline-md font-headline-md">Emergency Contact</h3>
+</div>
+<button class="text-primary text-label-lg font-label-lg">Edit</button>
+</div>
+<div class="flex items-center gap-md bg-white p-md rounded-xl border border-error/10">
+<div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-body-md font-body-md font-bold text-on-surface">Dr. Sarah Miller</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">+1 (555) 092-4412</p>
+</div>
+<div class="ml-auto flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-variant/50 text-secondary">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Security & Account -->
+<div class="p-lg space-y-lg">
+<div class="flex items-center gap-md mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="shield_person">shield_person</span>
+<h3 class="text-headline-md font-headline-md">Account Security</h3>
+</div>
+<button class="w-full flex items-center justify-between text-left group">
+<span class="text-body-md font-body-md text-on-surface">Two-Factor Authentication</span>
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg text-primary">On</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+<button class="w-full flex items-center justify-between text-left group">
+<span class="text-body-md font-body-md text-on-surface">Biometric Unlock</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between text-left group">
+<span class="text-body-md font-body-md text-error">Sign Out</span>
+<span class="material-symbols-outlined text-error" data-icon="logout">logout</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Aesthetic Footer Placeholder -->
+<div class="text-center pb-8 opacity-40">
+<p class="text-label-sm font-label-sm">MediFlow v2.4.0</p>
+<p class="text-label-sm font-label-sm">Secure Clinical Cloud Encrypted</p>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Active: Insights/Profile context) -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full z-50 bg-inverse-surface/90 backdrop-blur-md shadow-xl flex justify-between items-center p-2">
+<a class="flex items-center justify-center text-on-primary-container/70 px-3 py-2 hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</a>
+<a class="flex items-center justify-center text-on-primary-container/70 px-3 py-2 hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</a>
+<a class="flex items-center justify-center text-on-primary-container/70 px-3 py-2 hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+</a>
+<a class="flex items-center gap-2 bg-surface-container-lowest text-on-background rounded-full px-4 py-2 transition-all duration-300 scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="text-label-sm font-label-sm">Insights</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for toggles and buttons
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const parent = e.target.closest('label');
+                if (e.target.checked) {
+                    parent.classList.add('scale-105');
+                    setTimeout(() => parent.classList.remove('scale-105'), 200);
+                }
+            });
+        });
+
+        // Simple haptic-like effect on hover for cards
+        document.querySelectorAll('.clinical-glow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

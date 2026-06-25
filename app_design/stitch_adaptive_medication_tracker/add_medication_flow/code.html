@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediFlow - Add Medication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#d2c580",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#685f25",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#33628b",
+                    "secondary-fixed": "#cfe5ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-background": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#d4c782",
+                    "inverse-primary": "#89d5c4",
+                    "primary-fixed-dim": "#89d5c4",
+                    "on-primary-container": "#005c4f",
+                    "secondary-fixed-dim": "#9ecbf9",
+                    "outline-variant": "#bec9c5",
+                    "primary-container": "#86d2c1",
+                    "tertiary-fixed": "#f1e39c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "on-surface": "#191c1d",
+                    "surface-container-highest": "#e1e3e4",
+                    "primary-fixed": "#a4f1df",
+                    "error-container": "#ffdad6",
+                    "primary": "#146a5c",
+                    "surface-dim": "#d9dadb",
+                    "on-primary-fixed-variant": "#005045",
+                    "secondary-container": "#a4d0ff",
+                    "on-surface-variant": "#3f4946",
+                    "on-secondary-container": "#295982",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9fa",
+                    "surface-variant": "#e1e3e4",
+                    "on-tertiary-container": "#5a5118",
+                    "surface-tint": "#146a5c",
+                    "outline": "#6f7976",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary-fixed-variant": "#154a72",
+                    "on-tertiary-fixed": "#201c00",
+                    "on-secondary-fixed": "#001d33",
+                    "on-tertiary-fixed-variant": "#50470f",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#00201b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-desktop": "64px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-lg": ["Manrope"],
+                    "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["34px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .clinical-shadow {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .pill-active {
+            box-shadow: 0 0 0 2px #146a5c;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+<!-- Top AppBar (from JSON) -->
+<header class="bg-background dark:bg-background fixed top-0 w-full z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile py-sm">
+<button class="hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full p-2 active:scale-95 transition-transform duration-150" onclick="handleBack()">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Add Medication</h1>
+<button class="hover:bg-surface-variant/50 dark:hover:bg-surface-variant/20 rounded-full p-2 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-lg mx-auto">
+<!-- Progress Indicator -->
+<div class="mb-lg">
+<div class="flex justify-between items-center mb-sm">
+<span class="text-label-lg font-label-lg text-primary" id="step-label">Step 1 of 4</span>
+<span class="text-label-sm font-label-sm text-outline" id="step-percentage">25% Complete</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500 ease-out" id="progress-bar" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Form Steps Container -->
+<div class="relative overflow-hidden">
+<!-- Step 1: Medication Name and Strength -->
+<div class="step-transition" id="step-1">
+<div class="flex flex-col gap-lg">
+<div class="space-y-sm">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background">What are you taking?</h2>
+<p class="text-body-md text-on-surface-variant">Enter the name and strength of your medication.</p>
+</div>
+<div class="space-y-md">
+<div class="group">
+<label class="text-label-lg font-label-lg text-on-surface-variant block mb-2 px-1">Medication Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 text-body-lg focus:ring-2 focus:ring-primary transition-all placeholder:text-outline-variant" placeholder="e.g. Amoxicillin" type="text"/>
+</div>
+<div class="group">
+<label class="text-label-lg font-label-lg text-on-surface-variant block mb-2 px-1">Strength</label>
+<div class="flex gap-sm">
+<input class="flex-1 bg-surface-container-low border-none rounded-xl p-4 text-body-lg focus:ring-2 focus:ring-primary transition-all placeholder:text-outline-variant" placeholder="e.g. 500" type="text"/>
+<select class="w-32 bg-surface-container-low border-none rounded-xl p-4 text-body-lg focus:ring-2 focus:ring-primary transition-all">
+<option>mg</option>
+<option>mcg</option>
+<option>ml</option>
+<option>g</option>
+</select>
+</div>
+</div>
+<div class="mt-md">
+<label class="text-label-lg font-label-lg text-on-surface-variant block mb-3 px-1">Medication Form</label>
+<div class="grid grid-cols-2 gap-sm">
+<button class="flex items-center gap-sm p-4 rounded-2xl bg-surface-container-lowest border border-outline-variant hover:border-primary active:scale-95 transition-all text-left" type="button">
+<span class="material-symbols-outlined text-primary">pill</span>
+<span class="text-label-lg">Pill</span>
+</button>
+<button class="flex items-center gap-sm p-4 rounded-2xl bg-surface-container-lowest border border-outline-variant hover:border-primary active:scale-95 transition-all text-left" type="button">
+<span class="material-symbols-outlined text-primary">vaccines</span>
+<span class="text-label-lg">Injection</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 2: Dosage instructions (Hidden by default) -->
+<div class="step-transition hidden translate-x-full opacity-0" id="step-2">
+<div class="flex flex-col gap-lg">
+<div class="space-y-sm">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background">Dosage Instructions</h2>
+<p class="text-body-md text-on-surface-variant">How should you take this medication?</p>
+</div>
+<div class="grid grid-cols-1 gap-md">
+<label class="group relative flex items-center gap-md p-lg bg-surface-container-lowest rounded-[24px] clinical-shadow border border-transparent hover:border-primary cursor-pointer transition-all">
+<input class="hidden peer" name="food" type="radio"/>
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div class="flex-1">
+<h3 class="text-label-lg font-bold">With Food</h3>
+<p class="text-label-sm text-on-surface-variant">Take during or after a meal</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+<div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+</label>
+<label class="group relative flex items-center gap-md p-lg bg-surface-container-lowest rounded-[24px] clinical-shadow border border-transparent hover:border-primary cursor-pointer transition-all">
+<input class="hidden peer" name="food" type="radio"/>
+<div class="w-12 h-12 rounded-full bg-tertiary-container/30 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">no_food</span>
+</div>
+<div class="flex-1">
+<h3 class="text-label-lg font-bold">On Empty Stomach</h3>
+<p class="text-label-sm text-on-surface-variant">Take 1 hour before or 2 hours after meals</p>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+<div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+</label>
+</div>
+<div class="group">
+<label class="text-label-lg font-label-lg text-on-surface-variant block mb-2 px-1">Additional Instructions (Optional)</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 text-body-md focus:ring-2 focus:ring-primary transition-all placeholder:text-outline-variant h-24 resize-none" placeholder="e.g. Do not drink grapefruit juice"></textarea>
+</div>
+</div>
+</div>
+<!-- Step 3: Schedule setup -->
+<div class="step-transition hidden translate-x-full opacity-0" id="step-3">
+<div class="flex flex-col gap-lg">
+<div class="space-y-sm">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background">Frequency & Schedule</h2>
+<p class="text-body-md text-on-surface-variant">Set when you need to take your dose.</p>
+</div>
+<div class="space-y-md">
+<div class="bg-surface-container-lowest p-lg rounded-[24px] clinical-shadow">
+<label class="text-label-lg font-label-lg text-on-surface-variant block mb-4">Frequency</label>
+<div class="flex flex-wrap gap-sm">
+<button class="px-md py-sm rounded-full bg-primary-container/20 text-on-primary-container text-label-sm font-bold border border-primary-container/50">Everyday</button>
+<button class="px-md py-sm rounded-full bg-surface-container text-on-surface-variant text-label-sm font-bold">Specific Days</button>
+<button class="px-md py-sm rounded-full bg-surface-container text-on-surface-variant text-label-sm font-bold">As Needed</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-[24px] clinical-shadow">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="text-label-lg font-bold">Times of Day</h3>
+<button class="text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="text-label-sm">Add Time</span>
+</button>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-outline">schedule</span>
+<span class="font-bold">08:00 AM</span>
+</div>
+<span class="text-label-sm text-outline">1 dose</span>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-outline">schedule</span>
+<span class="font-bold">08:00 PM</span>
+</div>
+<span class="text-label-sm text-outline">1 dose</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 4: Refill reminder settings -->
+<div class="step-transition hidden translate-x-full opacity-0" id="step-4">
+<div class="flex flex-col gap-lg">
+<div class="space-y-sm">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background">Refill Reminders</h2>
+<p class="text-body-md text-on-surface-variant">Don't run out! We'll remind you to refill.</p>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-[24px] clinical-shadow flex flex-col gap-lg">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-bold">Enable Reminders</h3>
+<p class="text-label-sm text-on-surface-variant">Get notified when stock is low</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="space-y-md">
+<div>
+<label class="text-label-lg font-label-lg text-on-surface-variant block mb-2 px-1">Total Quantity</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 text-body-lg focus:ring-2 focus:ring-primary transition-all" placeholder="e.g. 30" type="number"/>
+</div>
+<div>
+<label class="text-label-lg font-label-lg text-on-surface-variant block mb-2 px-1">Remind me when I have</label>
+<div class="flex items-center gap-sm">
+<input class="w-24 bg-surface-container-low border-none rounded-xl p-4 text-body-lg focus:ring-2 focus:ring-primary transition-all" type="number" value="5"/>
+<span class="text-on-surface-variant">doses left</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative image placeholder -->
+<div class="rounded-[24px] overflow-hidden h-40 relative">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist 3D rendering of medicine bottles and a health app interface on a soft mint green background. High-quality clinical aesthetic with soft lighting and professional design, emphasizing wellness and reliability in a light-mode color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC59KPVicJ2Y7oRmsa38Agqjt2vODMFT3fQZcDtg_VWf0xuiQ3PttzDIZTTs_OJeKEpuvzKNKUwE5Iwt3M7RmCUeYCzcSm1L1TRgxiLGMNbN_CbkzafNlZgdx_LCgn9Rr9fWBUqQuAfDU3K-ybnXW_ShY_dVM6-7OaA7IFL0labsX3TfNYnTQAa4YhbWepuIUpGmzv5CW5cUyl1Nc_t5putLgY5RMOTiaQC7tNNQPGDU2rMXi22W3-m8pLWqM8vi1miShfT5Aimzs8"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 right-0 p-lg bg-background/80 backdrop-blur-md z-40">
+<div class="max-w-lg mx-auto flex gap-md">
+<button class="hidden flex-1 py-4 px-md rounded-full border border-outline text-on-surface font-bold hover:bg-surface-container active:scale-95 transition-all" id="prev-btn" onclick="prevStep()">
+                Back
+            </button>
+<button class="flex-[2] py-4 px-md rounded-full bg-primary text-on-primary font-bold shadow-lg hover:bg-primary/90 active:scale-95 transition-all" id="next-btn" onclick="nextStep()">
+                Next
+            </button>
+<button class="hidden flex-[2] py-4 px-md rounded-full bg-primary text-on-primary font-bold shadow-lg hover:bg-primary/90 active:scale-95 transition-all" id="finish-btn" onclick="finishForm()">
+                Add Medication
+            </button>
+</div>
+</footer>
+<script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateUI() {
+            const progressBar = document.getElementById('progress-bar');
+            const stepLabel = document.getElementById('step-label');
+            const stepPercentage = document.getElementById('step-percentage');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const finishBtn = document.getElementById('finish-btn');
+
+            // Update Progress
+            const percentage = (currentStep / totalSteps) * 100;
+            progressBar.style.width = `${percentage}%`;
+            stepLabel.innerText = `Step ${currentStep} of ${totalSteps}`;
+            stepPercentage.innerText = `${percentage}% Complete`;
+
+            // Step visibility logic
+            for (let i = 1; i <= totalSteps; i++) {
+                const stepDiv = document.getElementById(`step-${i}`);
+                if (i === currentStep) {
+                    stepDiv.classList.remove('hidden', 'translate-x-full', 'opacity-0');
+                    stepDiv.classList.add('block');
+                } else {
+                    stepDiv.classList.add('hidden', 'translate-x-full', 'opacity-0');
+                    stepDiv.classList.remove('block');
+                }
+            }
+
+            // Button visibility
+            if (currentStep === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+
+            if (currentStep === totalSteps) {
+                nextBtn.classList.add('hidden');
+                finishBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                finishBtn.classList.add('hidden');
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateUI();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function handleBack() {
+            if (currentStep > 1) {
+                prevStep();
+            } else {
+                // Navigate back to home or previous screen
+                alert('Navigating back...');
+            }
+        }
+
+        function finishForm() {
+            // Animation for success
+            const finishBtn = document.getElementById('finish-btn');
+            finishBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span>';
+            setTimeout(() => {
+                finishBtn.innerHTML = 'Added Successfully!';
+                finishBtn.classList.replace('bg-primary', 'bg-on-primary-container');
+                setTimeout(() => {
+                    alert('Medication added to your schedule!');
+                }, 500);
+            }, 1200);
+        }
+
+        // Initialize UI
+        updateUI();
+    </script>
+</body></html>

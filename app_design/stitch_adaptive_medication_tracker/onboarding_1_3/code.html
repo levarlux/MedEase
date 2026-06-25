@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#d2c580",
+            "on-primary": "#ffffff",
+            "tertiary": "#685f25",
+            "surface-bright": "#f8f9fa",
+            "secondary": "#33628b",
+            "secondary-fixed": "#cfe5ff",
+            "on-secondary": "#ffffff",
+            "surface-container": "#edeeef",
+            "on-background": "#191c1d",
+            "inverse-on-surface": "#f0f1f2",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2e3132",
+            "tertiary-fixed-dim": "#d4c782",
+            "inverse-primary": "#89d5c4",
+            "primary-fixed-dim": "#89d5c4",
+            "on-primary-container": "#005c4f",
+            "secondary-fixed-dim": "#9ecbf9",
+            "outline-variant": "#bec9c5",
+            "primary-container": "#86d2c1",
+            "tertiary-fixed": "#f1e39c",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f8f9fa",
+            "on-surface": "#191c1d",
+            "surface-container-highest": "#e1e3e4",
+            "primary-fixed": "#a4f1df",
+            "error-container": "#ffdad6",
+            "primary": "#146a5c",
+            "surface-dim": "#d9dadb",
+            "on-primary-fixed-variant": "#005045",
+            "secondary-container": "#a4d0ff",
+            "on-surface-variant": "#3f4946",
+            "on-secondary-container": "#295982",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "background": "#f8f9fa",
+            "surface-variant": "#e1e3e4",
+            "on-tertiary-container": "#5a5118",
+            "surface-tint": "#146a5c",
+            "outline": "#6f7976",
+            "surface-container-high": "#e7e8e9",
+            "on-secondary-fixed-variant": "#154a72",
+            "on-tertiary-fixed": "#201c00",
+            "on-secondary-fixed": "#001d33",
+            "on-tertiary-fixed-variant": "#50470f",
+            "surface-container-low": "#f3f4f5",
+            "on-primary-fixed": "#00201b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "margin-desktop": "64px",
+            "md": "16px",
+            "unit": "4px",
+            "margin-mobile": "20px",
+            "xl": "32px",
+            "lg": "24px",
+            "sm": "8px",
+            "xs": "4px"
+          },
+          "fontFamily": {
+            "body-lg": ["Manrope"],
+            "headline-md": ["Manrope"],
+            "headline-lg": ["Manrope"],
+            "display-lg": ["Manrope"],
+            "headline-lg-mobile": ["Manrope"],
+            "body-md": ["Manrope"],
+            "label-lg": ["Manrope"],
+            "label-sm": ["Manrope"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+            "display-lg": ["34px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Manrope', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .clinical-shadow {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+    .step-transition {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .progress-bar-fill {
+      transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col items-center">
+<!-- Progress Bar Container -->
+<nav class="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md z-50 pt-sm pb-sm px-margin-mobile">
+<div class="max-w-md mx-auto w-full">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-lg text-label-lg text-outline" id="step-counter">1 / 9</span>
+<button class="text-primary font-label-lg text-label-lg">Skip</button>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary progress-bar-fill w-[11.11%]" id="progress-indicator"></div>
+</div>
+</div>
+</nav>
+<main class="w-full max-w-md px-margin-mobile pt-32 pb-margin-desktop flex-1 flex flex-col">
+<!-- STEP 1: Profile Setup -->
+<section class="step-transition opacity-100 flex-1 flex flex-col" id="step-1">
+<header class="mb-xl">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-xs">Welcome to MediFlow</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Let's start with the basics. Who are we looking after today?</p>
+</header>
+<div class="flex flex-col items-center mb-xl">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border-4 border-white clinical-shadow mb-md">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist 3D character illustration of a friendly health assistant profile photo, featuring soft lighting and a calming mint green background, high-end medical app style." id="profile-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWAAFapSM_eVHC_O153j_ajbBzVZDvu4rDQVICrJDJm-NxKcEMP-9R47GatMdIX5ONJ84RCy_Hb3QeiGvCelVO_XQWLyGN_dPXZmIc1uYhn3NYqTA74QHYDtmYXMvr6yIUfSUEW6RhMyon4hcl9YozqtZhQaWGxhlanQu1ocOtLTmtSv2hCjT02MG8-kzlj-oIYz_kKVOtYpuftB4mZZHZ-iXLrG9mKMB4WkiMd-7fkILE9UfnxGWGbh7Xpz4KQBbw_GAnn5v7e-s"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-white text-3xl">photo_camera</span>
+</div>
+</div>
+<button class="absolute bottom-4 right-0 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center clinical-shadow">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<div class="space-y-lg flex-1">
+<div class="group">
+<label class="font-label-lg text-label-lg text-on-surface-variant mb-xs block px-xs">Your Name</label>
+<input class="w-full h-14 px-md bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface transition-all" placeholder="Enter your full name" type="text"/>
+</div>
+</div>
+<div class="mt-auto pt-lg">
+<button class="w-full bg-primary text-on-primary h-14 rounded-full font-headline-md text-headline-md clinical-shadow active:scale-[0.98] transition-transform" onclick="nextStep(2)">
+          Continue
+        </button>
+</div>
+</section>
+<!-- STEP 2: Health Goals -->
+<section class="step-transition hidden opacity-0 flex-1 flex flex-col" id="step-2">
+<header class="mb-xl">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-xs">Set your primary goal</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">We'll tailor your reminders and insights based on what matters most to you.</p>
+</header>
+<div class="space-y-md flex-1">
+<div class="goal-card p-lg bg-surface-container-lowest rounded-[24px] clinical-shadow border-2 border-transparent hover:border-primary-container cursor-pointer transition-all flex items-center gap-md group" onclick="selectGoal(this)">
+<div class="w-12 h-12 rounded-2xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">notifications_active</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Never miss a dose</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Simple, timely alerts for medication</p>
+</div>
+<span class="material-symbols-outlined text-primary-container opacity-0 group-[.selected]:opacity-100">check_circle</span>
+</div>
+<div class="goal-card p-lg bg-surface-container-lowest rounded-[24px] clinical-shadow border-2 border-transparent hover:border-primary-container cursor-pointer transition-all flex items-center gap-md group" onclick="selectGoal(this)">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">monitor_heart</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Track chronic condition</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Advanced tracking for long-term health</p>
+</div>
+<span class="material-symbols-outlined text-primary-container opacity-0 group-[.selected]:opacity-100">check_circle</span>
+</div>
+<div class="goal-card p-lg bg-surface-container-lowest rounded-[24px] clinical-shadow border-2 border-transparent hover:border-primary-container cursor-pointer transition-all flex items-center gap-md group" onclick="selectGoal(this)">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl">business</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">General Wellness</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Maintain vitamins and health supplements</p>
+</div>
+<span class="material-symbols-outlined text-primary-container opacity-0 group-[.selected]:opacity-100">check_circle</span>
+</div>
+</div>
+<div class="mt-auto pt-lg flex gap-md">
+<button class="flex-1 bg-surface-container-high text-on-surface-variant h-14 rounded-full font-headline-md text-headline-md active:scale-[0.98] transition-transform" onclick="prevStep(1)">
+          Back
+        </button>
+<button class="flex-[2] bg-primary text-on-primary h-14 rounded-full font-headline-md text-headline-md clinical-shadow active:scale-[0.98] transition-transform" onclick="nextStep(3)">
+          Continue
+        </button>
+</div>
+</section>
+<!-- STEP 3: Medication Types -->
+<section class="step-transition hidden opacity-0 flex-1 flex flex-col" id="step-3">
+<header class="mb-xl">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-xs">What type of meds?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Select the forms of medication you typically use to help us set up your logger.</p>
+</header>
+<div class="grid grid-cols-2 gap-md flex-1">
+<div class="type-card p-md bg-surface-container-lowest rounded-[24px] clinical-shadow border-2 border-transparent hover:border-primary-container cursor-pointer transition-all flex flex-col items-center justify-center text-center group" onclick="toggleType(this)">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-md group-[.selected]:bg-primary group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="pill">pill</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Pills</h3>
+</div>
+<div class="type-card p-md bg-surface-container-lowest rounded-[24px] clinical-shadow border-2 border-transparent hover:border-primary-container cursor-pointer transition-all flex flex-col items-center justify-center text-center group" onclick="toggleType(this)">
+<div class="w-16 h-16 rounded-full bg-secondary-container/10 flex items-center justify-center text-secondary mb-md group-[.selected]:bg-secondary group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="vaccines">vaccines</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Injections</h3>
+</div>
+<div class="type-card p-md bg-surface-container-lowest rounded-[24px] clinical-shadow border-2 border-transparent hover:border-primary-container cursor-pointer transition-all flex flex-col items-center justify-center text-center group" onclick="toggleType(this)">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary mb-md group-[.selected]:bg-tertiary group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="fluid_med">fluid_med</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Liquids</h3>
+</div>
+<div class="type-card p-md bg-surface-container-lowest rounded-[24px] clinical-shadow border-2 border-transparent hover:border-primary-container cursor-pointer transition-all flex flex-col items-center justify-center text-center group" onclick="toggleType(this)">
+<div class="w-16 h-16 rounded-full bg-surface-container-high/50 flex items-center justify-center text-on-surface-variant mb-md group-[.selected]:bg-primary group-[.selected]:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-4xl" data-icon="more_horiz">more_horiz</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Other</h3>
+</div>
+</div>
+<div class="mt-auto pt-lg flex gap-md">
+<button class="flex-1 bg-surface-container-high text-on-surface-variant h-14 rounded-full font-headline-md text-headline-md active:scale-[0.98] transition-transform" onclick="prevStep(2)">
+          Back
+        </button>
+<button class="flex-[2] bg-primary text-on-primary h-14 rounded-full font-headline-md text-headline-md clinical-shadow active:scale-[0.98] transition-transform" onclick="completeOnboarding()">
+          Finish Setup
+        </button>
+</div>
+</section>
+</main>
+<script>
+    function nextStep(step) {
+      const current = document.querySelector('section:not(.hidden)');
+      const next = document.getElementById(`step-${step}`);
+      
+      current.classList.add('opacity-0');
+      setTimeout(() => {
+        current.classList.add('hidden');
+        next.classList.remove('hidden');
+        setTimeout(() => {
+          next.classList.remove('opacity-0');
+          next.classList.add('opacity-100');
+        }, 50);
+      }, 400);
+
+      // Update progress bar
+      const progress = (step / 9) * 100;
+      document.getElementById('progress-indicator').style.width = `${progress}%`;
+      document.getElementById('step-counter').textContent = `${step} / 9`;
+    }
+
+    function prevStep(step) {
+      const current = document.querySelector('section:not(.hidden)');
+      const prev = document.getElementById(`step-${step}`);
+      
+      current.classList.add('opacity-0');
+      setTimeout(() => {
+        current.classList.add('hidden');
+        prev.classList.remove('hidden');
+        setTimeout(() => {
+          prev.classList.remove('opacity-0');
+          prev.classList.add('opacity-100');
+        }, 50);
+      }, 400);
+
+      // Update progress bar
+      const progress = (step / 9) * 100;
+      document.getElementById('progress-indicator').style.width = `${progress}%`;
+      document.getElementById('step-counter').textContent = `${step} / 9`;
+    }
+
+    function selectGoal(element) {
+      document.querySelectorAll('.goal-card').forEach(c => c.classList.remove('selected', 'ring-2', 'ring-primary', 'bg-primary-container/5'));
+      element.classList.add('selected', 'ring-2', 'ring-primary', 'bg-primary-container/5');
+    }
+
+    function toggleType(element) {
+      element.classList.toggle('selected');
+      element.classList.toggle('ring-2');
+      element.classList.toggle('ring-primary');
+      element.classList.toggle('bg-primary-container/5');
+    }
+
+    function completeOnboarding() {
+      alert("Onboarding basic flow complete! Moving to dashboard...");
+    }
+  </script>
+</body></html>
