@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { useQuery } from "convex/react";
 import { TopAppBar, DoseCard, EmptyState } from "@/components";
-import { api } from "convex/_generated/api";
+import { api } from "@convex/_generated/api";
 import { localDateString, DAYPART_ORDER, DAYPART_LABEL } from "@mediflow/shared";
 import type { Daypart } from "@mediflow/shared";
 

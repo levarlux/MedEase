@@ -3,7 +3,7 @@ import { ScrollView, Text, View, ActivityIndicator, RefreshControl } from "react
 import { useQuery, useMutation } from "convex/react";
 import { useState, useCallback } from "react";
 import { TopAppBar, AdherenceRing, DoseCard, EmptyState, PillButton } from "@/components";
-import { api } from "convex/_generated/api";
+import { api } from "@convex/_generated/api";
 import { router } from "expo-router";
 import { DAYPART_ORDER, DAYPART_LABEL } from "@mediflow/shared";
 import type { Daypart } from "@mediflow/shared";

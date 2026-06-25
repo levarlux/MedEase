@@ -1,6 +1,6 @@
 import { Redirect } from "expo-router";
 import { useQuery, useAction } from "convex/react";
-import { api } from "convex/_generated/api";
+import { api } from "@convex/_generated/api";
 import { useEffect, useRef } from "react";
 
 /**

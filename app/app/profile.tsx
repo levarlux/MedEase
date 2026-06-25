@@ -12,7 +12,7 @@ import { router } from "expo-router";
 import { useQuery, useMutation } from "convex/react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Icon } from "@/components/Icon";
-import { api } from "convex/_generated/api";
+import { api } from "@convex/_generated/api";
 import { useKindeAuth } from "@kinde/expo";
 
 /**

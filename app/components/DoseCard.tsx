@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from "react-native";
 import { Icon } from "./Icon";
 import { format12h, DAYPART_LABEL } from "@mediflow/shared";
-import type { Doc } from "convex/_generated/dataModel";
+import type { Doc } from "@convex/_generated/dataModel";
 
 export interface DoseCardProps {
   dose: Doc<"doseInstances">;

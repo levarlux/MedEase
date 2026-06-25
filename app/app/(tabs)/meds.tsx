@@ -3,7 +3,7 @@ import { useQuery } from "convex/react";
 import { router } from "expo-router";
 import { TopAppBar, EmptyState, PillButton } from "@/components";
 import { Icon } from "@/components/Icon";
-import { api } from "convex/_generated/api";
+import { api } from "@convex/_generated/api";
 
 const ACCENT_BG: Record<string, string> = {
   primary: "bg-primary-container",

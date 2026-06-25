@@ -16,7 +16,7 @@ import { LabeledInput } from "@/components/LabeledInput";
 import { PillButton } from "@/components/PillButton";
 import { MED_FORM_ICON } from "@mediflow/shared";
 import type { MedForm, Frequency, FoodRule, StrengthUnit } from "@mediflow/shared";
-import { api } from "convex/_generated/api";
+import { api } from "@convex/_generated/api";
 
 /* ------------------------------------------------------------------ */
 /* Step types                                                          */

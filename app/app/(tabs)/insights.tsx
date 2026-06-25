@@ -3,7 +3,7 @@ import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import { useQuery } from "convex/react";
 import { TopAppBar, AdherenceRing, EmptyState } from "@/components";
 import { Icon } from "@/components/Icon";
-import { api } from "convex/_generated/api";
+import { api } from "@convex/_generated/api";
 
 const ACCENT_BG: Record<string, string> = {
   primary: "bg-primary-container",
