@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "MediFlow",
+    "slug": "mediflow",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "mediflow",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#f8f9fa"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mediflow.app",
+      "infoPlist": {
+        "UIUserInterfaceStyle": "Light"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#f8f9fa"
+      },
+      "package": "com.mediflow.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "experiments": {
+      "tsconfigPaths": true,
+      "typedRoutes": true
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The custom utilities below are used heavily by the source HTML prototypes
+ * but aren't expressible purely through Tailwind tokens. Keep them here so
+ * the conversion stays 1:1. */
+
+/* Standard "Clinical Glow" ambient lift used on every card in the design. */
+@variant clinical-glow (*);
+
+/* Hide scrollbars on horizontal scrollers (calendar strip, chip rows). */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
