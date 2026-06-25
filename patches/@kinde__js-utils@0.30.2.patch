@@ -1,0 +1,16 @@
+diff --git a/dist/js-utils.js b/dist/js-utils.js
+index e11906d203d97317511e6539dafd89b543e3b910..f86a8607577069834f87d31131084e844443918d 100644
+--- a/dist/js-utils.js
++++ b/dist/js-utils.js
+@@ -390,10 +390,7 @@ var de = class extends D {
+ 	}
+ 	async loadExpoStore() {
+ 		try {
+-			k = await import(
+-				/* webpackIgnore: true */
+-				"expo-secure-store"
+-);
++			k = require("expo-secure-store");
+ 		} catch (e) {
+ 			console.error("Error loading dependency expo storage:", e);
+ 		}

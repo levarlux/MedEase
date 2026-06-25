@@ -32,6 +32,9 @@
       "expo-web-browser": "~55.0.16",
       "expo-crypto": "~55.0.0",
       "expo-linking": "~55.0.15"
+    },
+    "patchedDependencies": {
+      "@kinde/js-utils@0.30.2": "patches/@kinde__js-utils@0.30.2.patch"
     }
   }
 }
