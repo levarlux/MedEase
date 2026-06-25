@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#f8f9fa"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.mediflow.app",
@@ -38,6 +40,12 @@
     "experiments": {
       "tsconfigPaths": true,
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "e2edbb59-6a3c-4522-87bd-9d628b3f8e84"
+      }
     }
   }
 }
