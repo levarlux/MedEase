@@ -2,6 +2,7 @@
   "name": "mediflow",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.33.0",
   "description": "MediFlow — adaptive medication scheduling, dosage tracking & smart reminders. iOS + Android.",
   "scripts": {
     "start": "pnpm --filter @mediflow/app start -- --clear",
