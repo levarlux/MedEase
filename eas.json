@@ -5,13 +5,16 @@
   },
   "build": {
     "development": {
+      "projectRoot": "app",
       "developmentClient": true,
       "distribution": "internal"
     },
     "preview": {
+      "projectRoot": "app",
       "distribution": "internal"
     },
     "production": {
+      "projectRoot": "app",
       "autoIncrement": true
     }
   },
