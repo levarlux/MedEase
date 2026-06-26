@@ -1,0 +1,14 @@
+# EAS Build uses .easignore (not .gitignore) to decide what to upload.
+# Excluding the generated native dirs forces EAS to regenerate them from
+# app.json on every build (Continuous Native Generation), which is the
+# intended workflow for this project. The local android/ and ios/ dirs are
+# kept on disk for local development but must never be uploaded as-is.
+
+android/
+ios/
+
+# Local dev / build artifacts (mirror .gitignore for safety).
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
